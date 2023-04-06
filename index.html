@@ -19,30 +19,34 @@
             height: 70vh;
             width: 300px;
             object-fit: cover;
+            border-radius: 10px;
         }
+
         #image1 {
             margin-top: 20px;
             object-fit: cover;
+            border-radius: 10px;
         }
 
         #button {
             text-align: center;
             bottom: 20px;
             right: 20px;
-            background-color: #222;
+            background-color: #03f;
             color: #fff;
             border: none;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
             margin-top: 20px;
+            border-radius: 10px;
         }
 
         #button1 {
             text-align: center;
             bottom: 20px;
             right: 20px;
-            background-color: #222;
+            background-color: #03f;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -50,7 +54,7 @@
             cursor: pointer;
         }
 
-        .caja{
+        .caja {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -67,7 +71,7 @@
             <img id="image" width="300px" height="100vh" src="images/imagen1.jpg" alt="ImagenAleatoria">
         </div>
         <div id="button">
-            <button id="button1">Mostrar imagen aleatoria</button>
+            <button id="button1">CAMBIO</button>
         </div>
     </div>
     <script>
@@ -96,12 +100,18 @@
 
         const imageElement = document.getElementById('image');
         const buttonElement = document.getElementById('button');
+        const buttonElement1 = document.getElementById('button1');
+        let i = 1
 
         function showRandomImage() {
-            const randomIndex = Math.floor(Math.random() * images.length);
-            const randomImage = images[randomIndex];
-            imageElement.src = randomImage;
-            console.log(randomImage)
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * images.length);
+                const randomImage = images[randomIndex];
+                imageElement.src = randomImage;
+                console.log(randomImage)
+                buttonElement1.innerHTML = `CAMBIO ${i++}`
+                console.log("2 Segundo esperado")
+            }, 2000);
         }
 
         buttonElement.addEventListener('click', showRandomImage);
